@@ -1,0 +1,220 @@
+[15:01:10 INF] Configured endpoint convert-video-job, Consumer: JobService.Components.ConvertVideoJobConsumer
+[15:01:10 INF] Configured endpoint video-converted, Consumer: JobService.Service.Components.VideoConvertedConsumer
+[15:01:10 DBG] Starting bus instances: IBus
+[15:01:10 DBG] Starting bus: rabbitmq://ecas-rabbit/
+[15:01:10 DBG] Connect: ecas@ecas-rabbit:5672/
+[15:01:10 DBG] Connected: ecas@ecas-rabbit:5672/ (address: amqp://ecas-rabbit:5672, local: 52904)
+[15:01:10 DBG] Endpoint Ready: rabbitmq://ecas-rabbit/DESKTOPDR96G2O_JobServiceService_bus_o1zyyybemohbe74fbdprsrhwgu?temporary=true
+[15:01:10 DBG] Declare queue: name: instance-o1zyyybemohbjp6qbdprsrhwgh, auto-delete, consumer-count: 0 message-count: 0
+[15:01:10 DBG] Declare queue: name: job-attempt, durable, consumer-count: 0 message-count: 0
+[15:01:10 DBG] Declare queue: name: job, durable, consumer-count: 0 message-count: 0
+[15:01:10 DBG] Declare queue: name: job-type, durable, consumer-count: 0 message-count: 0
+[15:01:10 DBG] Declare exchange: name: job, type: fanout, durable
+[15:01:10 DBG] Declare exchange: name: instance-o1zyyybemohbjp6qbdprsrhwgh, type: fanout, auto-delete
+[15:01:10 DBG] Declare exchange: name: job-type, type: fanout, durable
+[15:01:10 DBG] Declare exchange: name: job-attempt, type: fanout, durable
+[15:01:10 DBG] Declare exchange: name: MassTransit.Contracts.JobService:CancelJob, type: fanout, durable
+[15:01:10 DBG] Declare exchange: name: MassTransit.Contracts.JobService:JobAttemptCanceled, type: fanout, durable
+[15:01:10 DBG] Declare exchange: name: MassTransit.Contracts.JobService:JobSubmitted, type: fanout, durable
+[15:01:10 DBG] Declare exchange: name: MassTransit.Contracts.JobService:SetConcurrentJobLimit, type: fanout, durable
+[15:01:10 DBG] Declare exchange: name: MassTransit.Contracts.JobService:JobAttemptStarted, type: fanout, durable
+[15:01:10 DBG] Declare exchange: name: MassTransit.Contracts.JobService:JobAttemptCanceled, type: fanout, durable
+[15:01:10 DBG] Declare exchange: name: MassTransit.Contracts.JobService:JobAttemptFaulted, type: fanout, durable
+[15:01:10 DBG] Bind queue: source: job-type, destination: job-type
+[15:01:10 DBG] Declare exchange: name: MassTransit.Contracts.JobService:JobAttemptStarted, type: fanout, durable
+[15:01:10 DBG] Declare exchange: name: MassTransit.Contracts.JobService:JobAttemptCompleted, type: fanout, durable
+[15:01:10 DBG] Declare exchange: name: MassTransit.Contracts.JobService:JobAttemptFaulted, type: fanout, durable
+[15:01:10 DBG] Bind queue: source: instance-o1zyyybemohbjp6qbdprsrhwgh, destination: instance-o1zyyybemohbjp6qbdprsrhwgh
+[15:01:10 DBG] Declare exchange: name: MassTransit.Contracts.JobService:JobAttemptCompleted, type: fanout, durable
+[15:01:10 DBG] Bind queue: source: job-attempt, destination: job-attempt
+[15:01:10 DBG] Declare exchange: name: MassTransit.Contracts.JobService:JobCompleted, type: fanout, durable
+[15:01:10 DBG] Bind queue: source: job, destination: job
+[15:01:10 DBG] Bind exchange: source: MassTransit.Contracts.JobService:SetConcurrentJobLimit, destination: job-type
+[15:01:10 DBG] Bind exchange: source: MassTransit.Contracts.JobService:CancelJob, destination: instance-o1zyyybemohbjp6qbdprsrhwgh
+[15:01:10 DBG] Bind exchange: source: MassTransit.Contracts.JobService:JobAttemptCanceled, destination: job-attempt
+[15:01:10 DBG] Bind exchange: source: MassTransit.Contracts.JobService:JobSubmitted, destination: job
+[15:01:10 DBG] Bind exchange: source: MassTransit.Contracts.JobService:JobAttemptStarted, destination: job-attempt
+[15:01:10 DBG] Bind exchange: source: MassTransit.Contracts.JobService:JobAttemptCanceled, destination: job
+[15:01:10 DBG] Bind exchange: source: MassTransit.Contracts.JobService:JobAttemptFaulted, destination: job-attempt
+[15:01:10 DBG] Bind exchange: source: MassTransit.Contracts.JobService:JobAttemptStarted, destination: job
+[15:01:10 DBG] Bind exchange: source: MassTransit.Contracts.JobService:JobAttemptCompleted, destination: job-attempt
+[15:01:10 DBG] Bind exchange: source: MassTransit.Contracts.JobService:JobAttemptFaulted, destination: job
+[15:01:10 DBG] Bind exchange: source: MassTransit.Contracts.JobService:JobAttemptCompleted, destination: job
+[15:01:10 DBG] Bind exchange: source: MassTransit.Contracts.JobService:JobCompleted, destination: job
+[15:01:10 DBG] Consumer Ok: rabbitmq://ecas-rabbit/job-attempt - amq.ctag-ew85h0HmM1RwKeE3NDolOg
+[15:01:10 DBG] Consumer Ok: rabbitmq://ecas-rabbit/job - amq.ctag-JVuaEN4dE-jMg8MmwFjgBA
+[15:01:10 DBG] Consumer Ok: rabbitmq://ecas-rabbit/job-type - amq.ctag-i02NOKjQEDxiyJxia5ZQpQ
+[15:01:10 DBG] Endpoint Ready: rabbitmq://ecas-rabbit/job-attempt
+[15:01:10 DBG] Endpoint Ready: rabbitmq://ecas-rabbit/job
+[15:01:10 DBG] Consumer Ok: rabbitmq://ecas-rabbit/instance-o1zyyybemohbjp6qbdprsrhwgh?temporary=true - amq.ctag-gwBxAL7p9LwxFjIRW04jDw
+[15:01:10 DBG] Endpoint Ready: rabbitmq://ecas-rabbit/job-type
+[15:01:10 DBG] Endpoint Ready: rabbitmq://ecas-rabbit/instance-o1zyyybemohbjp6qbdprsrhwgh?temporary=true
+[15:01:10 DBG] Declare queue: name: video-converted, durable, consumer-count: 0 message-count: 0
+[15:01:10 DBG] Declare queue: name: convert-video-job, durable, consumer-count: 0 message-count: 0
+[15:01:10 DBG] Declare exchange: name: video-converted, type: fanout, durable
+[15:01:10 DBG] Declare exchange: name: convert-video-job, type: fanout, durable
+[15:01:10 DBG] Declare exchange: name: JobService.Components:VideoConverted, type: fanout, durable
+[15:01:10 DBG] Declare exchange: name: MassTransit.Contracts.JobService:SubmitJob--JobService.Components:ConvertVideo--, type: fanout, durable
+[15:01:10 DBG] Bind queue: source: video-converted, destination: video-converted
+[15:01:10 DBG] Declare exchange: name: JobService.Components:ConvertVideo, type: fanout, durable
+[15:01:10 DBG] Bind queue: source: convert-video-job, destination: convert-video-job
+[15:01:10 DBG] Bind exchange: source: MassTransit.Contracts.JobService:SubmitJob--JobService.Components:ConvertVideo--, destination: convert-video-job
+[15:01:10 DBG] Bind exchange: source: JobService.Components:VideoConverted, destination: video-converted
+[15:01:10 DBG] Bind exchange: source: JobService.Components:ConvertVideo, destination: convert-video-job
+[15:01:10 DBG] Consumer Ok: rabbitmq://ecas-rabbit/video-converted - amq.ctag-TD28-KVl4_Be3BsAakTpfQ
+[15:01:10 DBG] Endpoint Ready: rabbitmq://ecas-rabbit/video-converted
+[15:01:10 DBG] Consumer Ok: rabbitmq://ecas-rabbit/convert-video-job - amq.ctag--eCIbq-X3Xb-R5NEtUsrxQ
+[15:01:10 DBG] Endpoint Ready: rabbitmq://ecas-rabbit/convert-video-job
+[15:01:10 DBG] Job Service starting: rabbitmq://ecas-rabbit/instance-o1zyyybemohbjp6qbdprsrhwgh?temporary=true
+[15:01:10 DBG] Job Service type: JobService.Components.ConvertVideo
+[15:01:10 DBG] Declare exchange: name: MassTransit.Contracts.JobService:SetConcurrentJobLimit, type: fanout, durable
+[15:01:11 DBG] SEND rabbitmq://ecas-rabbit/MassTransit.Contracts.JobService:SetConcurrentJobLimit 84ae0000-285c-3814-1dfe-08da4b13956e MassTransit.Contracts.JobService.SetConcurrentJobLimit
+[15:01:11 INF] Job Service started: rabbitmq://ecas-rabbit/instance-o1zyyybemohbjp6qbdprsrhwgh?temporary=true
+[15:01:11 INF] Bus started: rabbitmq://ecas-rabbit/
+[15:01:12 DBG] SAGA:MassTransit.JobTypeSaga:9f941aa7-8485-4de4-163a-2f3e3b4289d0 Created MassTransit.Contracts.JobService.SetConcurrentJobLimit
+[15:01:12 DBG] SAGA:MassTransit.JobTypeSaga:9f941aa7-8485-4de4-163a-2f3e3b4289d0 Added MassTransit.Contracts.JobService.SetConcurrentJobLimit
+[15:01:12 DBG] Job Service Instance Started: rabbitmq://ecas-rabbit/instance-o1zyyybemohbjp6qbdprsrhwgh?temporary=true
+[15:01:12 DBG] Concurrent Job Limit: 1
+[15:01:13 DBG] RECEIVE rabbitmq://ecas-rabbit/job-type 84ae0000-285c-3814-1dfe-08da4b13956e MassTransit.Contracts.JobService.SetConcurrentJobLimit MassTransit.JobTypeSaga(00:00:01.8127824)
+[15:02:11 DBG] SEND rabbitmq://ecas-rabbit/MassTransit.Contracts.JobService:SetConcurrentJobLimit 84ae0000-285c-3814-4b3e-08da4b13b952 MassTransit.Contracts.JobService.SetConcurrentJobLimit
+[15:02:11 DBG] SAGA:MassTransit.JobTypeSaga:9f941aa7-8485-4de4-163a-2f3e3b4289d0 Used MassTransit.Contracts.JobService.SetConcurrentJobLimit
+[15:02:11 DBG] RECEIVE rabbitmq://ecas-rabbit/job-type 84ae0000-285c-3814-4b3e-08da4b13b952 MassTransit.Contracts.JobService.SetConcurrentJobLimit MassTransit.JobTypeSaga(00:00:00.0430543)
+[15:03:12 DBG] SEND rabbitmq://ecas-rabbit/MassTransit.Contracts.JobService:SetConcurrentJobLimit 84ae0000-285c-3814-c512-08da4b13dd9f MassTransit.Contracts.JobService.SetConcurrentJobLimit
+[15:03:12 INF] Sending job: test1.mp4
+[15:03:12 DBG] Declare exchange: name: JobService.Components:ConvertVideo, type: fanout, durable
+[15:03:12 DBG] Declare queue: name: DESKTOPDR96G2O_JobServiceService_bus_o1zyyybemohbe74fbdprsrhwgu, x-expires: 60000, consumer-count: 0 message-count: 0
+[15:03:12 DBG] SAGA:MassTransit.JobTypeSaga:9f941aa7-8485-4de4-163a-2f3e3b4289d0 Used MassTransit.Contracts.JobService.SetConcurrentJobLimit
+[15:03:12 DBG] RECEIVE rabbitmq://ecas-rabbit/job-type 84ae0000-285c-3814-c512-08da4b13dd9f MassTransit.Contracts.JobService.SetConcurrentJobLimit MassTransit.JobTypeSaga(00:00:00.0827366)
+[15:03:12 DBG] Declare exchange: name: DESKTOPDR96G2O_JobServiceService_bus_o1zyyybemohbe74fbdprsrhwgu, type: fanout, auto-delete
+[15:03:12 DBG] Bind queue: source: DESKTOPDR96G2O_JobServiceService_bus_o1zyyybemohbe74fbdprsrhwgu, destination: DESKTOPDR96G2O_JobServiceService_bus_o1zyyybemohbe74fbdprsrhwgu
+[15:03:12 DBG] Consumer Ok: rabbitmq://ecas-rabbit/DESKTOPDR96G2O_JobServiceService_bus_o1zyyybemohbe74fbdprsrhwgu?temporary=true - amq.ctag-hmyJBCYRGvHJRNpMoIhLWA
+[15:03:12 DBG] SEND rabbitmq://ecas-rabbit/JobService.Components:ConvertVideo 84ae0000-285c-3814-3e16-08da4b13dda8 JobService.Components.ConvertVideo
+[15:03:12 DBG] Declare exchange: name: MassTransit.Contracts.JobService:JobSubmitted, type: fanout, durable
+[15:03:12 DBG] SEND rabbitmq://ecas-rabbit/MassTransit.Contracts.JobService:JobSubmitted 84ae0000-285c-3814-c159-08da4b13ddbd MassTransit.Contracts.JobService.JobSubmitted
+[15:03:12 DBG] SAGA:MassTransit.JobSaga:84ae0000-285c-3814-6dd5-08da4b13dda1 Created MassTransit.Contracts.JobService.JobSubmitted
+[15:03:12 DBG] SAGA:MassTransit.JobSaga:84ae0000-285c-3814-6dd5-08da4b13dda1 Added MassTransit.Contracts.JobService.JobSubmitted
+[15:03:12 DBG] Create send transport: rabbitmq://ecas-rabbit/DESKTOPDR96G2O_JobServiceService_bus_o1zyyybemohbe74fbdprsrhwgu?temporary=true
+[15:03:12 DBG] Declare exchange: name: DESKTOPDR96G2O_JobServiceService_bus_o1zyyybemohbe74fbdprsrhwgu, type: fanout, auto-delete
+[15:03:12 DBG] Create send transport: rabbitmq://ecas-rabbit/job-type
+[15:03:12 DBG] SEND rabbitmq://ecas-rabbit/DESKTOPDR96G2O_JobServiceService_bus_o1zyyybemohbe74fbdprsrhwgu?temporary=true 84ae0000-285c-3814-1473-08da4b13ddc6 MassTransit.Contracts.JobService.JobSubmissionAccepted
+[15:03:12 DBG] RECEIVE rabbitmq://ecas-rabbit/convert-video-job 84ae0000-285c-3814-3e16-08da4b13dda8 JobService.Components.ConvertVideo MassTransit.JobService.SubmitJobConsumer<JobService.Components.ConvertVideo>(00:00:00.0981682)
+[15:03:12 DBG] RECEIVE rabbitmq://ecas-rabbit/DESKTOPDR96G2O_JobServiceService_bus_o1zyyybemohbe74fbdprsrhwgu?temporary=true 84ae0000-285c-3814-1473-08da4b13ddc6 MassTransit.Contracts.JobService.JobSubmissionAccepted MassTransit.MessageHandler<MassTransit.Contracts.JobService.JobSubmissionAccepted>(00:00:00.0000912)
+[15:03:12 DBG] RECEIVE rabbitmq://ecas-rabbit/job 84ae0000-285c-3814-c159-08da4b13ddbd MassTransit.Contracts.JobService.JobSubmitted MassTransit.JobSaga(00:00:00.0954395)
+[15:03:12 DBG] Declare exchange: name: job-type, type: fanout, durable
+[15:03:12 DBG] SEND rabbitmq://ecas-rabbit/job-type 84ae0000-285c-3814-ed5a-08da4b13ddcf MassTransit.Contracts.JobService.AllocateJobSlot
+[15:03:12 DBG] SAGA:MassTransit.JobTypeSaga:9f941aa7-8485-4de4-163a-2f3e3b4289d0 Used MassTransit.Contracts.JobService.AllocateJobSlot
+[15:03:12 DBG] Allocated Job Slot: 84ae0000-285c-3814-6dd5-08da4b13dda1 (1): rabbitmq://ecas-rabbit/instance-o1zyyybemohbjp6qbdprsrhwgh?temporary=true (1)
+[15:03:12 DBG] Create send transport: rabbitmq://ecas-rabbit/job
+[15:03:12 DBG] RECEIVE rabbitmq://ecas-rabbit/job-type 84ae0000-285c-3814-ed5a-08da4b13ddcf MassTransit.Contracts.JobService.AllocateJobSlot MassTransit.JobTypeSaga(00:00:00.0312360)
+[15:03:12 DBG] Declare exchange: name: job, type: fanout, durable
+[15:03:12 DBG] SEND rabbitmq://ecas-rabbit/job 84ae0000-285c-3814-bb31-08da4b13ddd6 MassTransit.Contracts.JobService.JobSlotAllocated
+[15:03:12 DBG] SAGA:MassTransit.JobSaga:84ae0000-285c-3814-6dd5-08da4b13dda1 Used MassTransit.Contracts.JobService.JobSlotAllocated
+[15:03:12 DBG] Create send transport: rabbitmq://ecas-rabbit/job-attempt
+[15:03:12 DBG] RECEIVE rabbitmq://ecas-rabbit/job 84ae0000-285c-3814-bb31-08da4b13ddd6 MassTransit.Contracts.JobService.JobSlotAllocated MassTransit.JobSaga(00:00:00.0295067)
+[15:03:12 DBG] Declare exchange: name: job-attempt, type: fanout, durable
+[15:03:12 DBG] SEND rabbitmq://ecas-rabbit/job-attempt 84ae0000-285c-3814-d39b-08da4b13dddc MassTransit.Contracts.JobService.StartJobAttempt
+[15:03:12 DBG] SAGA:MassTransit.JobAttemptSaga:84ae0000-285c-3814-6b83-08da4b13ddc5 Created MassTransit.Contracts.JobService.StartJobAttempt
+[15:03:12 DBG] SAGA:MassTransit.JobAttemptSaga:84ae0000-285c-3814-6b83-08da4b13ddc5 Added MassTransit.Contracts.JobService.StartJobAttempt
+[15:03:12 DBG] Create send transport: rabbitmq://ecas-rabbit/instance-o1zyyybemohbjp6qbdprsrhwgh?temporary=true
+[15:03:12 DBG] Create send transport: rabbitmq://ecas-rabbit/job-attempt
+[15:03:12 DBG] Declare exchange: name: job-attempt, type: fanout, durable
+[15:03:12 DBG] Declare exchange: name: job-attempt_delay, type: x-delayed-message, durable, x-delayed-type: fanout
+[15:03:12 DBG] Declare exchange: name: job-attempt, type: fanout, durable
+[15:03:12 DBG] Bind exchange: source: job-attempt_delay, destination: job-attempt
+[15:03:12 DBG] SEND rabbitmq://ecas-rabbit/job-attempt 84ae0000-285c-3814-4ce0-08da4b13dde8 MassTransit.Contracts.JobService.JobStatusCheckRequested
+[15:03:12 DBG] RECEIVE rabbitmq://ecas-rabbit/job-attempt 84ae0000-285c-3814-d39b-08da4b13dddc MassTransit.Contracts.JobService.StartJobAttempt MassTransit.JobAttemptSaga(00:00:00.1259553)
+[15:03:12 DBG] Declare exchange: name: instance-o1zyyybemohbjp6qbdprsrhwgh, type: fanout, auto-delete
+[15:03:12 DBG] SEND rabbitmq://ecas-rabbit/instance-o1zyyybemohbjp6qbdprsrhwgh?temporary=true 84ae0000-285c-3814-47f9-08da4b13ddf4 MassTransit.Contracts.JobService.StartJob
+[15:03:12 DBG] Create send transport: rabbitmq://ecas-rabbit/job-attempt
+[15:03:12 DBG] Declare exchange: name: job-attempt, type: fanout, durable
+[15:03:12 DBG] SEND rabbitmq://ecas-rabbit/job-attempt 84ae0000-285c-3814-793e-08da4b13ddff MassTransit.Fault<MassTransit.Contracts.JobService.StartJob>
+[15:03:12 ERR] R-FAULT rabbitmq://ecas-rabbit/instance-o1zyyybemohbjp6qbdprsrhwgh?temporary=true 84ae0000-285c-3814-47f9-08da4b13ddf4 MassTransit.Contracts.JobService.StartJob MassTransit.JobService.StartJobConsumer<JobService.Components.ConvertVideo>(00:00:00.0084968)
+Newtonsoft.Json.JsonSerializationException: Cannot deserialize the current JSON array (e.g. [1,2,3]) into type 'JobService.Components.Foo' because the type requires a JSON object (e.g. {"name":"value"}) to deserialize correctly.
+To fix this error either change the JSON to a JSON object (e.g. {"name":"value"}) or change the deserialized type to an array or a type that implements a collection interface (e.g. ICollection, IList) like List<T> that can be deserialized from a JSON array. JsonArrayAttribute can also be added to the type to force it to deserialize from a JSON array.
+Path 'foos[0]'.
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.EnsureArrayContract(JsonReader reader, Type objectType, JsonContract contract)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateList(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, Object existingValue, String id)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.PopulateList(IList list, JsonReader reader, JsonArrayContract contract, JsonProperty containerProperty, String id)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateList(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, Object existingValue, String id)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.SetPropertyValue(JsonProperty property, JsonConverter propertyConverter, JsonContainerContract containerContract, JsonProperty containerProperty, JsonReader reader, Object target)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.PopulateObject(Object newObject, JsonReader reader, JsonObjectContract contract, JsonProperty member, String id)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.Serialization.JsonSerializerProxy.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize(JsonReader reader, Type objectType)
+   at MassTransit.Serialization.JsonConverters.InterfaceProxyConverter.CachedConverter`1.MassTransit.Serialization.JsonConverters.BaseJsonConverter.IConverter.Deserialize(JsonReader reader, Type objectType, JsonSerializer serializer) in /_/src/MassTransit.Newtonsoft/Serialization/JsonConverters/InterfaceProxyConverter.cs:line 31
+   at MassTransit.Serialization.JsonConverters.BaseJsonConverter.ReadJson(JsonReader reader, Type objectType, Object existingValue, JsonSerializer serializer) in /_/src/MassTransit.Newtonsoft/Serialization/JsonConverters/BaseJsonConverter.cs:line 15
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.DeserializeConvertable(JsonConverter converter, JsonReader reader, Type objectType, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize[T](JsonReader reader)
+   at MassTransit.Serialization.NewtonsoftObjectDeserializer.DeserializeObject[T](Object value, T defaultValue) in /_/src/MassTransit.Newtonsoft/Serialization/NewtonsoftObjectDeserializer.cs:line 34
+   at MassTransit.Serialization.BaseSerializerContext.DeserializeObject[T](Object value, T defaultValue) in /_/src/MassTransit/Serialization/EnvelopeSerializerContext.cs:line 52
+   at MassTransit.JobServiceEventExtensions.GetJob[TJob](ConsumeContext`1 context) in /_/src/MassTransit/JobServiceEventExtensions.cs:line 18
+   at MassTransit.JobService.StartJobConsumer`1.Consume(ConsumeContext`1 context) in /_/src/MassTransit/JobService/JobService/StartJobConsumer.cs:line 31
+   at MassTransit.Consumer.DelegateConsumerFactory`1.Send[TMessage](ConsumeContext`1 context, IPipe`1 next) in /_/src/MassTransit/Consumers/Consumer/DelegateConsumerFactory.cs:line 29
+   at MassTransit.Consumer.DelegateConsumerFactory`1.Send[TMessage](ConsumeContext`1 context, IPipe`1 next) in /_/src/MassTransit/Consumers/Consumer/DelegateConsumerFactory.cs:line 39
+   at MassTransit.Middleware.ConsumerMessageFilter`2.MassTransit.IFilter<MassTransit.ConsumeContext<TMessage>>.Send(ConsumeContext`1 context, IPipe`1 next) in /_/src/MassTransit/Middleware/ConsumerMessageFilter.cs:line 46
+[15:03:12 DBG] SAGA:MassTransit.JobAttemptSaga:84ae0000-285c-3814-6b83-08da4b13ddc5 Used MassTransit.Fault<MassTransit.Contracts.JobService.StartJob>
+[15:03:12 DBG] Create send transport: rabbitmq://ecas-rabbit/job
+[15:03:12 DBG] Declare queue: name: instance-o1zyyybemohbjp6qbdprsrhwgh_error, auto-delete, consumer-count: 0 message-count: 0
+[15:03:12 DBG] RECEIVE rabbitmq://ecas-rabbit/job-attempt 84ae0000-285c-3814-793e-08da4b13ddff MassTransit.Fault<MassTransit.Contracts.JobService.StartJob> MassTransit.JobAttemptSaga(00:00:00.0443619)
+[15:03:12 DBG] Declare exchange: name: job, type: fanout, durable
+[15:03:12 DBG] Declare exchange: name: instance-o1zyyybemohbjp6qbdprsrhwgh_error, type: fanout, auto-delete
+[15:03:12 DBG] SEND rabbitmq://ecas-rabbit/job 84ae0000-285c-3814-858d-08da4b13de0b MassTransit.Contracts.JobService.JobAttemptFaulted
+[15:03:12 DBG] Bind queue: source: instance-o1zyyybemohbjp6qbdprsrhwgh_error, destination: instance-o1zyyybemohbjp6qbdprsrhwgh_error
+[15:03:12 DBG] SAGA:MassTransit.JobSaga:84ae0000-285c-3814-6dd5-08da4b13dda1 Used MassTransit.Contracts.JobService.JobAttemptFaulted
+[15:03:12 DBG] Create send transport: rabbitmq://ecas-rabbit/convert-video-job
+[15:03:12 DBG] RECEIVE rabbitmq://ecas-rabbit/job 84ae0000-285c-3814-858d-08da4b13de0b MassTransit.Contracts.JobService.JobAttemptFaulted MassTransit.JobSaga(00:00:00.0528680)
+[15:03:12 DBG] Declare exchange: name: MassTransit.Contracts.JobService:JobFaulted, type: fanout, durable
+[15:03:12 DBG] SEND rabbitmq://ecas-rabbit/MassTransit.Contracts.JobService:JobFaulted 84ae0000-285c-3814-eaba-08da4b13de15 MassTransit.Contracts.JobService.JobFaulted
+[15:03:12 DBG] Declare exchange: name: convert-video-job, type: fanout, durable
+[15:03:12 DBG] SEND rabbitmq://ecas-rabbit/convert-video-job 84ae0000-285c-3814-6ebe-08da4b13de17 MassTransit.Contracts.JobService.FaultJob
+[15:03:12 DBG] SEND rabbitmq://ecas-rabbit/job-type 84ae0000-285c-3814-0dbc-08da4b13de19 MassTransit.Contracts.JobService.JobSlotReleased
+[15:03:12 DBG] Declare exchange: name: MassTransit:Fault--MassTransit.Contracts.JobService:FaultJob--, type: fanout, durable
+[15:03:12 DBG] Declare exchange: name: MassTransit:Fault, type: fanout, durable
+[15:03:12 DBG] SAGA:MassTransit.JobTypeSaga:9f941aa7-8485-4de4-163a-2f3e3b4289d0 Used MassTransit.Contracts.JobService.JobSlotReleased
+[15:03:12 DBG] Bind exchange: source: MassTransit:Fault--MassTransit.Contracts.JobService:FaultJob--, destination: MassTransit:Fault
+[15:03:12 DBG] Released Job Slot: 84ae0000-285c-3814-6dd5-08da4b13dda1 (0): rabbitmq://ecas-rabbit/instance-o1zyyybemohbjp6qbdprsrhwgh?temporary=true
+[15:03:12 DBG] RECEIVE rabbitmq://ecas-rabbit/job-type 84ae0000-285c-3814-0dbc-08da4b13de19 MassTransit.Contracts.JobService.JobSlotReleased MassTransit.JobTypeSaga(00:00:00.0182180)
+[15:03:12 DBG] SEND rabbitmq://ecas-rabbit/MassTransit:Fault--MassTransit.Contracts.JobService:FaultJob-- 84ae0000-285c-3814-a81b-08da4b13de1f MassTransit.Fault<MassTransit.Contracts.JobService.FaultJob>
+[15:03:12 ERR] R-FAULT rabbitmq://ecas-rabbit/convert-video-job 84ae0000-285c-3814-6ebe-08da4b13de17 MassTransit.Contracts.JobService.FaultJob MassTransit.JobService.FinalizeJobConsumer<JobService.Components.ConvertVideo>(00:00:00.0036335)
+Newtonsoft.Json.JsonSerializationException: Cannot deserialize the current JSON array (e.g. [1,2,3]) into type 'JobService.Components.Foo' because the type requires a JSON object (e.g. {"name":"value"}) to deserialize correctly.
+To fix this error either change the JSON to a JSON object (e.g. {"name":"value"}) or change the deserialized type to an array or a type that implements a collection interface (e.g. ICollection, IList) like List<T> that can be deserialized from a JSON array. JsonArrayAttribute can also be added to the type to force it to deserialize from a JSON array.
+Path 'foos[0]'.
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.EnsureArrayContract(JsonReader reader, Type objectType, JsonContract contract)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateList(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, Object existingValue, String id)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.PopulateList(IList list, JsonReader reader, JsonArrayContract contract, JsonProperty containerProperty, String id)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateList(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, Object existingValue, String id)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.SetPropertyValue(JsonProperty property, JsonConverter propertyConverter, JsonContainerContract containerContract, JsonProperty containerProperty, JsonReader reader, Object target)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.PopulateObject(Object newObject, JsonReader reader, JsonObjectContract contract, JsonProperty member, String id)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.Serialization.JsonSerializerProxy.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize(JsonReader reader, Type objectType)
+   at MassTransit.Serialization.JsonConverters.InterfaceProxyConverter.CachedConverter`1.MassTransit.Serialization.JsonConverters.BaseJsonConverter.IConverter.Deserialize(JsonReader reader, Type objectType, JsonSerializer serializer) in /_/src/MassTransit.Newtonsoft/Serialization/JsonConverters/InterfaceProxyConverter.cs:line 31
+   at MassTransit.Serialization.JsonConverters.BaseJsonConverter.ReadJson(JsonReader reader, Type objectType, Object existingValue, JsonSerializer serializer) in /_/src/MassTransit.Newtonsoft/Serialization/JsonConverters/BaseJsonConverter.cs:line 15
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.DeserializeConvertable(JsonConverter converter, JsonReader reader, Type objectType, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize[T](JsonReader reader)
+   at MassTransit.Serialization.NewtonsoftObjectDeserializer.DeserializeObject[T](Object value, T defaultValue) in /_/src/MassTransit.Newtonsoft/Serialization/NewtonsoftObjectDeserializer.cs:line 34
+   at MassTransit.Serialization.BaseSerializerContext.DeserializeObject[T](Object value, T defaultValue) in /_/src/MassTransit/Serialization/EnvelopeSerializerContext.cs:line 52
+   at MassTransit.JobServiceEventExtensions.GetJob[TJob](ConsumeContext`1 context) in /_/src/MassTransit/JobServiceEventExtensions.cs:line 24
+   at MassTransit.JobService.FinalizeJobConsumer`1.Consume(ConsumeContext`1 context) in /_/src/MassTransit/JobService/JobService/FinalizeJobConsumer.cs:line 45
+   at MassTransit.Middleware.MethodConsumerMessageFilter`2.MassTransit.IFilter<MassTransit.ConsumerConsumeContext<TConsumer,TMessage>>.Send(ConsumerConsumeContext`2 context, IPipe`1 next) in /_/src/MassTransit/Middleware/MethodConsumerMessageFilter.cs:line 27
+   at MassTransit.Middleware.LastPipe`1.Send(TContext context) in /_/src/MassTransit.Abstractions/Middleware/Middleware/LastPipe.cs:line 30
+   at MassTransit.Consumer.DelegateConsumerFactory`1.Send[TMessage](ConsumeContext`1 context, IPipe`1 next) in /_/src/MassTransit/Consumers/Consumer/DelegateConsumerFactory.cs:line 29
+   at MassTransit.Consumer.DelegateConsumerFactory`1.Send[TMessage](ConsumeContext`1 context, IPipe`1 next) in /_/src/MassTransit/Consumers/Consumer/DelegateConsumerFactory.cs:line 39
+   at MassTransit.Middleware.ConsumerMessageFilter`2.MassTransit.IFilter<MassTransit.ConsumeContext<TMessage>>.Send(ConsumeContext`1 context, IPipe`1 next) in /_/src/MassTransit/Middleware/ConsumerMessageFilter.cs:line 46
+[15:03:12 DBG] Declare queue: name: convert-video-job_error, durable, consumer-count: 0 message-count: 0
+[15:03:13 DBG] Declare exchange: name: convert-video-job_error, type: fanout, durable
+[15:03:13 DBG] Bind queue: source: convert-video-job_error, destination: convert-video-job_error
